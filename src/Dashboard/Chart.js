@@ -6,18 +6,35 @@ import HighChartsReact from 'highcharts-react-official'
 const options= {
     chart: {
         height: '360px',
-        type: 'column'
+        type: 'column',
+        style:{
+            // fontFamily: `'Blinker', sans-serif`, 
+        }
     },
     title: {
-        text: 'Stacked column chart'
+        text: 'Reveniew by Product'
     },
     xAxis: {
-        categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
+        categories: [
+            'Jan',
+            'Febr',
+            'Mar',
+            'Apr',
+            'May',
+            'Jun',
+            'Jul',
+            'Aug',
+            'Sep',
+            'Oct',
+            'Nov',
+            'Dec',
+            ]
     },
     yAxis: {
         min: 0,
+        reversedStacks: false,
         title: {
-            text: 'Total fruit consumption'
+            text: 'Billions of dollars'
         },
         stackLabels: {
             enabled: true,
@@ -47,6 +64,9 @@ const options= {
         pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
     },
     plotOptions: {
+        series: {
+            borderWidth: 0
+        },
         column: {
             stacking: 'normal',
             dataLabels: {
@@ -55,15 +75,26 @@ const options= {
         }
     },
     series: [{
-        name: 'John',
-        data: [5, 3, 4, 7, 2]
+        name: 'Phones',
+        data: [5, 3, 4, 7, 2],
+        color: '#2d6a4f'
+
     }, {
-        name: 'Jane',
-        data: [2, 2, 3, 2, 1]
+        name: 'Services',
+        data: [2, 2, 3, 2, 1],
+        color: '#40916c'
+
     }, {
-        name: 'Joe',
-        data: [3, 4, 4, 2, 5]
-    }]
+        name: 'Laptops',
+        data: [3, 4, 4, 2, 5],
+        color: '#52b788'
+    },
+    {
+        name: 'Tablets',
+        data: [3, 4, 4, 2, 5],
+        color: '#74c69d'
+    }
+    ]
 }
 
 export function Chart(){
