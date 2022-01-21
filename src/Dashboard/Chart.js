@@ -2,6 +2,7 @@ import React from "react";
 import {Card} from './Card'
 import Highcharts from 'highcharts'
 import HighChartsReact from 'highcharts-react-official'
+import {chartData} from './Data'
 
 const options= {
     chart: {
@@ -37,7 +38,7 @@ const options= {
             text: 'Billions of dollars'
         },
         stackLabels: {
-            enabled: true,
+            enabled: false,
             style: {
                 fontWeight: 'bold',
                 color: ( // theme
@@ -70,31 +71,11 @@ const options= {
         column: {
             stacking: 'normal',
             dataLabels: {
-                enabled: true
+                enabled: false
             }
         }
     },
-    series: [{
-        name: 'Phones',
-        data: [5, 3, 4, 7, 2],
-        color: '#2d6a4f'
-
-    }, {
-        name: 'Services',
-        data: [2, 2, 3, 2, 1],
-        color: '#40916c'
-
-    }, {
-        name: 'Laptops',
-        data: [3, 4, 4, 2, 5],
-        color: '#52b788'
-    },
-    {
-        name: 'Tablets',
-        data: [3, 4, 4, 2, 5],
-        color: '#74c69d'
-    }
-    ]
+    series: chartData
 }
 
 export function Chart(){
