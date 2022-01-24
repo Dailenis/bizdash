@@ -33,3 +33,33 @@ export const chartData = [
     }
 ]
 
+const months = [
+    'Jan',
+    'Febr',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+]
+
+function format(num){
+    return `$${num} Billion`
+}
+
+export const TableRows = months.map((month, i) =>({
+    month,
+    phones: format(chartData[0].data[i]),
+    services: format(chartData[1].data[i]),
+    laptops: format(chartData[2].data[i]),
+    tablets: format(chartData[3].data[i]),
+})
+)
+
+console.log(TableRows)
+
