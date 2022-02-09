@@ -1,21 +1,24 @@
-import React from 'react'
+import React, {useState, createContext} from 'react'
 import {Brand} from './Brand'
 import {Container} from './Container'
 import {GlobalStyle} from './GlobalStyle'
-import {Card} from './Card'
 import {Chart} from './Chart'
-import {VirtualizedTable} from './Table'
-
+// import {VirtualizedTable} from './Table'
+import {DarkSwitch} from './DarkSwitch'
+export const ThemeContext = createContext();
 export function Dashboard(){
+    const ThemeState = useState('light');
+    const [theme, setTheme] = ThemeState
+    const dark = theme === 'dark'
     return (
-        <>  
-            <GlobalStyle/>
+               <ThemeContext.Provider value={ThemeState}>  
+            <GlobalStyle dark={dark}/>
                 <Container >
-                    <Brand/>
-                    
+                    <Brand/>     
+                    <DarkSwitch />               
                     <Chart />
-                    <VirtualizedTable />
+                    {/* <VirtualizedTable /> */}
                 </Container>
-        </>
+        </ThemeContext.Provider>
     )
 }

@@ -51,7 +51,7 @@ class ReactVirtualizedTable extends React.Component {
                 >
                     {
                     columns.map(({dataKey, ...other}, index) => {
-                        <Column 
+                       return <Column 
                         key={dataKey} 
                         dataKey={dataKey}
                         headerRenderer={headerProps => 
